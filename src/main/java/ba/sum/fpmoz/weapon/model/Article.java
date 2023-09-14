@@ -14,11 +14,11 @@ public class Article {
     Long id;
 
     @Column(nullable = false)
-    @NotBlank(message = "Molimo unesite naziv proizvoda, vrstu naočala.")
+    @NotBlank(message = "Molimo unesite naziv proizvoda, vrstu oružja.")
     String name;
 
     @Column(nullable = false)
-    @NotBlank(message = "Molimo unesite opis proizvoda, jesu sunčane ili dioptrijske.")
+    @NotBlank(message = "Molimo unesite opis proizvoda, je li pištolj ili puška ili municija")
     String description;
 
     @Column(nullable = false)

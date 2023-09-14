@@ -1,11 +1,13 @@
-version: "3.7"
+version: "3.8"
 services:
   resto:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: weapon
     image: weapon:latest
     ports:
-      - 8080:8080
+      - "8080:8080"
     networks:
       - rest-network
     volumes:
@@ -14,15 +16,14 @@ services:
       - mysql
   mysql:
     container_name: mysql
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
     image: mysql:latest
     networks:
       - rest-network
     environment:
       - MYSQL_ROOT_PASSWORD=rootpass
       - MYSQL_DATABASE=weapon
-      - MYSQL_USER=weaponuser
-      - MYSQL_PASSWORD=lozinka
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=
     volumes:
       - mysql-data:/var/lib/mysql
     restart: always
